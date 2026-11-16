@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Browser query benchmark fixture (synthetic)</title>
+    <style>
+      :root { color-scheme: light; font: 14px/1.4 system-ui, sans-serif; }
+      body { margin: 24px; background: #fff; color: #1f2937; }
+      form { display: flex; gap: 8px; margin-bottom: 12px; }
+      input { width: 420px; padding: 7px 9px; border: 1px solid #9ca3af; border-radius: 4px; }
+      button { padding: 7px 14px; border: 1px solid #4b5563; border-radius: 4px; background: #f3f4f6; cursor: pointer; }
+      #status { min-height: 20px; color: #374151; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { padding: 5px 8px; border: 1px solid #d1d5db; text-align: left; white-space: nowrap; }
+      th { background: #f3f4f6; }
+    </style>
+  </head>
+  <body>
+    <p><strong>SYNTHETIC LOCAL FIXTURE</strong> — no enterprise site or API is contacted.</p>
+    <form id="query-form">
+      <label for="query">Query</label>
+      <input id="query" name="query" autocomplete="off" value="initial">
+      <button id="run" type="submit">Run synthetic query</button>
+    </form>
+    <div id="status" data-state="empty">No query has run.</div>
+    <table id="results" aria-label="synthetic query results">
+      <thead>
+        <tr><th>ID</th><th>Actor</th><th>Status</th><th>Score</th><th>Query</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      const rows = Object.freeze(Array.from({ length: 100 }, (_, index) => Object.freeze({
+        id: `SYN-${String(index + 1).padStart(3, '0')}`,
+        actor: `actor-${String(index % 10).padStart(2, '0')}`,
+        status: ['open', 'review', 'closed'][index % 3],
+        score: (0.50 + ((index * 7) % 50) / 100).toFixed(2)
+      })));
+      const queryInput = document.querySelector('#query');
+      const runButton = document.querySelector('#run');
+      const form = document.querySelector('#query-form');
+      const status = document.querySelector('#status');
+      const tbody = document.querySelector('#results tbody');
+
+      function render(query) {
+        status.dataset.state = 'running';
+        status.textContent = 'Running synthetic query…';
+        tbody.replaceChildren();
+        const fragment = document.createDocumentFragment();
+        for (let index = 0; index < rows.length; index += 1) {
+          const row = rows[index];
+          const tr = document.createElement('tr');
+          tr.dataset.rowIndex = String(index);
+          for (const value of [row.id, row.actor, row.status, row.score, query]) {
+            const td = document.createElement('td');
+            td.textContent = value;
+            tr.appendChild(td);
+          }
+          fragment.appendChild(tr);
+        }
+        tbody.appendChild(fragment);
+        status.dataset.state = 'done';
+        status.dataset.query = query;
+        status.dataset.rows = String(rows.length);
+        status.textContent = `Returned ${rows.length} synthetic rows.`;
+      }
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        render(queryInput.value);
+      });
+    </script>
+  </body>
+</html>

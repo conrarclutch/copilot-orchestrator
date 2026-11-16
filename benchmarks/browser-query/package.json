@@ -1,0 +1,13 @@
+{
+  "name": "browser-query-benchmark",
+  "private": true,
+  "type": "module",
+  "description": "Synthetic, local-only comparison of browser query automation overhead.",
+  "scripts": {
+    "benchmark": "node benchmark.mjs"
+  },
+  "dependencies": {
+    "playwright-core": "1.65.1",
+    "puppeteer-core": "25.17.0"
+  }
+}

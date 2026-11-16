@@ -1,0 +1,16 @@
+.cor-markdown { color: inherit; overflow-wrap: anywhere; line-height: 1.6; }
+.cor-markdown pre, .cor-attachment pre { overflow-x: auto; padding: 12px; border-radius: 6px; background: var(--cor-code-background, #161b22); color: var(--cor-code-foreground, #e6edf3); }
+.cor-markdown code { font-family: var(--cor-font-mono, ui-monospace, monospace); font-size: .9em; }
+.cor-markdown img, .cor-attachment img { max-width: 100%; height: auto; }
+.cor-markdown table { display: block; overflow-x: auto; border-collapse: collapse; }
+.cor-markdown th, .cor-markdown td { padding: 6px 12px; border: 1px solid var(--cor-border, #8885); }
+.cor-markdown blockquote { margin-inline: 0; padding-inline-start: 16px; border-inline-start: 3px solid var(--cor-border, #8885); }
+.cor-html-frame { display: block; width: 100%; border: 0; background: transparent; }
+.cor-attachment { max-width: 100%; margin: 8px 0; }
+.cor-attachment iframe { display: block; width: 100%; min-height: 240px; border: 0; }
+.cor-attachment figcaption { font-size: .85em; opacity: .75; }
+.cor-markdown .hljs-keyword, .cor-markdown .hljs-selector-tag, .cor-markdown .hljs-literal { color: var(--cor-code-keyword, #ff7b72); }
+.cor-markdown .hljs-string, .cor-markdown .hljs-attr { color: var(--cor-code-string, #a5d6ff); }
+.cor-markdown .hljs-number, .cor-markdown .hljs-symbol { color: var(--cor-code-number, #79c0ff); }
+.cor-markdown .hljs-comment { color: var(--cor-code-comment, #8b949e); }
+.cor-markdown .hljs-title, .cor-markdown .hljs-built_in { color: var(--cor-code-title, #d2a8ff); }

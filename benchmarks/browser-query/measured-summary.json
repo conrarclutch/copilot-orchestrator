@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-15T03:42:22.793Z",
+  "syntheticOnly": true,
+  "browser": "Edg/157.0.4341.46",
+  "environment": {
+    "node": "v24.18.1",
+    "platform": "win32",
+    "arch": "x64",
+    "playwright": "1.65.1",
+    "puppeteer": "25.17.0"
+  },
+  "clients": [
+    {
+      "name": "Playwright",
+      "count": 80,
+      "median": 12.069399999999973,
+      "p95": 23.578899999999976
+    },
+    {
+      "name": "Puppeteer",
+      "count": 80,
+      "median": 7.53004999999996,
+      "p95": 19.651400000000194
+    },
+    {
+      "name": "Direct CDP",
+      "count": 80,
+      "median": 7.191850000000159,
+      "p95": 14.677400000000034
+    }
+  ],
+  "techniques": [
+    {
+      "name": "Playwright batched",
+      "count": 80,
+      "median": 9.4070499999998,
+      "p95": 12.854600000000573
+    },
+    {
+      "name": "Playwright per row",
+      "count": 80,
+      "median": 82.45804999999973,
+      "p95": 143.36629999999968
+    }
+  ],
+  "batchingRatio": 8.765558809616351,
+  "rawRuns": [
+    "recorded-run-1.json",
+    "recorded-run-2.json"
+  ],
+  "limitations": [
+    "No enterprise endpoints or authentication. No network/server query latency or model calls.",
+    "Node bindings only, not Python Playwright. Playwright CDP attachment, not its native launch protocol.",
+    "Programmatic DOM actions, not typing, locator auto-waits, accessibility snapshots or screenshot reasoning.",
+    "Browser startup measured once; connect times are single observations, not statistical comparisons."
+  ]
+}

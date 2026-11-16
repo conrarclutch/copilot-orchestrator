@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "work-tools": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["mcp_probe.py"],
+      "workingDirectory": ".",
+      "tools": ["integration_probe"]
+    }
+  }
+}

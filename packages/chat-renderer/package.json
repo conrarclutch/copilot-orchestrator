@@ -1,0 +1,21 @@
+{
+  "name": "@copilot-orchestrator/chat-renderer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Embeddable T3-derived HTML artifacts and rich message rendering",
+  "license": "MIT",
+  "files": ["dist", "README.md", "LICENSE"],
+  "exports": {
+    ".": { "types": "./dist/types/index.d.ts", "import": "./dist/index.js" },
+    "./browser": { "types": "./dist/types/browser/index.d.ts", "import": "./dist/browser.js" },
+    "./styles.css": "./dist/styles.css"
+  },
+  "sideEffects": ["**/*.css"],
+  "scripts": { "build": "node build.mjs", "prepack": "node build.mjs" },
+  "dependencies": {
+    "lowlight": "3.3.0",
+    "marked": "18.2.0",
+    "dompurify": "3.4.17"
+  }
+}
